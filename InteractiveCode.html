@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Demonstrations</title>
+    <link rel="stylesheet" href="interactiveCode.css">
+</head>
+<body>
+    <a href="index.html" class="back-button">Go back to Home Page</a>
+    <h1>Personal Code Demonstrations</h1>
+
+    <section>
+        <h2>Code Demonstration 1</h2>
+        <p>Description of the code demonstration.</p>
+        <button onclick="showCode('code1')">Show Code</button>
+        <pre id="code1" style="display: none;">
+            import java.util.Random;
+            import java.util.Scanner;
+            public class guessthenumbergame
+            {
+                public static void main(String[] args)
+                {
+                    Scanner scanner = new Scanner(System.in);
+                    Random random = new Random();
+                    char a;
+            
+                    do
+                    {
+                        int x = random.nextInt(1000) + 1;
+                        int z = 1;
+                        System.out.println("I have a number between 1 and 1000.");
+                        System.out.println("Can you guess my number?");
+                        System.out.print("Please type your First guess: ");
+                        while (true)
+                        {
+                            int y = scanner.nextInt();
+                            if (y == x)
+                            {
+                                System.out.println("Excellent! You guessed the number in " + z + " attempts."); 
+                                break;
+                            }
+                            else
+                            {
+                                System.out.println(y < x ? "Too low. Try again." : "Too high. Try again.");
+                            }
+                            System.out.print("Please type your guess: ");
+                            z++;
+                            if (y == x)
+                            {
+                                System.out.println("Excellent! You guessed the number in " + z + " attempts.");
+                                break;
+                            } 
+                            else
+                            {
+                                System.out.println(y < x ? "Too low. Try again." : "Too high. Try again.");
+                            }
+                        }
+                        System.out.print("Would you like to play again (y or n)? ");
+                        a = scanner.next().charAt(0);
+                    } while (a == 'y' || a == 'Y');
+                }
+            }
+        </pre>
+        <button onclick="runCode('code1')">Run Code</button>
+        <pre id="output1"></pre>
+    </section>
+
+    <section>
+        <h2>Code Demonstration 2</h2>
+        <p>Description of the code demonstration.</p>
+        <button onclick="showCode('code2')">Show Code</button>
+        <pre id="code2" style="display: none;">
+            // Your code here
+        </pre>
+        <button onclick="runCode('code2')">Run Code</button>
+        <pre id="output2"></pre>
+    </section>
+
+    <!-- Add more sections for additional code demonstrations -->
+
+    <script>
+        function showCode(codeId) {
+            var codeElement = document.getElementById(codeId);
+            codeElement.style.display = "block";
+        }
+
+        function runCode(codeId) {
+            var codeElement = document.getElementById(codeId);
+            var code = codeElement.innerText;
+
+            // Send the code to the server-side script for execution
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "execute.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var outputElement = document.getElementById("output" + codeId.slice(-1));
+                    outputElement.innerText = xhr.responseText;
+                }
+            };
+            xhr.send("code=" + encodeURIComponent(code));
+        }
+    </script>
+</body>
+</html>

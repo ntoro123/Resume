@@ -1,0 +1,55 @@
+/* FILEPATH: /C:/Users/ntoro/OneDrive/Documents/GitHub/Resume/InteractiveCode.css */
+
+/* Add proper indentation and spacing */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Use consistent naming conventions */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.back-button {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Add comments to explain code */
+/* This is a comment explaining the purpose of this code block */
